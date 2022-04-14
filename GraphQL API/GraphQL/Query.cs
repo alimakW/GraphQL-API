@@ -1,7 +1,9 @@
 ﻿
 
+using GraphQL_API.Models;
 using HotChocolate.Data;
 using RickAndMortyGraphQL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,30 +19,36 @@ namespace Rick_and_Morty_Project.GraphQL
         [UseFiltering]
         public IQueryable<CharacterModel> Characters => new List<CharacterModel>
         {
-            new CharacterModel
+            new CharacterModel (new OriginModel("Earth", "https://rickandmortyapi.com/api/location/1" ), new LocationModel("Earth", "https://rickandmortyapi.com/api/location/20" ))
             {
                     Id = 1,
                     Name = "Morty Smith",
+                    Status = "Alive",
                     Species = "Human",
-                    Gender = "Male",                   
+                    Type = "",
+                    Gender = "Male",  
+                    image = new Uri ("https://rickandmortyapi.com/api/character/avatar/2.jpeg"),
+                    Episode = new string[] { "https://rickandmortyapi.com/api/episode/1",
+                       "https://rickandmortyapi.com/api/episode/2" },
+                    url= new Uri ("https://rickandmortyapi.com/api/location/1"),
+                    Created = "2017-11-04T18:50:21.651Z"
             },
-            new CharacterModel
+            new CharacterModel(new OriginModel("Earth", "https://rickandmortyapi.com/api/location/1" ), new LocationModel("Earth", "https://rickandmortyapi.com/api/location/20" ))
             {
                     Id = 2,
                     Name = "Summer Smith",
                     Species = "Human",
-                    Gender = "Female",
-                    
+                    Gender = "Female",                    
             },
-            new CharacterModel
+            new CharacterModel(new OriginModel("Unity's Planet", "https://rickandmortyapi.com/api/location/1" ), new LocationModel("Unity's Planet", "https://rickandmortyapi.com/api/location/20" ))
             {
                 Id = 3,
                 Name = "Karen Entity",
                 Species = "Alien",
-                Gender = "Female",
-               
+                Gender = "Female",               
+
             },
-             new CharacterModel
+             new CharacterModel (new OriginModel("Earth", "https://rickandmortyapi.com/api/location/1" ), new LocationModel("Earth", "https://rickandmortyapi.com/api/location/20" ))
             {
                 Id = 4,
                 Name = "Kathy Ireland",
@@ -48,7 +56,7 @@ namespace Rick_and_Morty_Project.GraphQL
                 Gender = "Female",
 
             },
-              new CharacterModel
+              new CharacterModel (new OriginModel("Interdimensional Cable", "https://rickandmortyapi.com/api/location/1" ), new LocationModel("Interdimensional Cable", "https://rickandmortyapi.com/api/location/20" ))
             {
                 Id = 5,
                 Name = "When Wolf",
